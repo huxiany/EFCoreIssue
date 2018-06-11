@@ -17,27 +17,41 @@ namespace EFCoreTileTests
                 EnsureDBInitialized(db);
 
                 DateTime queryBeginTime = DateTime.Now;
-                var salesOrderIdParam = new MySqlParameter("@salesOrderId", 578);
                 var tiles = getTiles(db, 578);
                 DateTime queryEndTime = DateTime.Now;
-                printTimeDiff(queryEndTime, queryBeginTime, "Tile query");
+                printTimeDiff(queryEndTime, queryBeginTime, "Tile query 1");
 
                 tiles = getTiles(db, 578);
 
                 DateTime query2EndTime = DateTime.Now;
                 printTimeDiff(query2EndTime, queryEndTime, "Tile query 2");
 
-                tiles = getTilesNull(db, 578);
+                tiles = getTilesSetJsonObjectNull(db, 578);
 
                 DateTime query3EndTime = DateTime.Now;
                 printTimeDiff(query3EndTime, query2EndTime, "Tile query 3");
 
 
-                tiles = getTilesNull(db, 578);
+                tiles = getTilesSetJsonObjectNull(db, 578);
 
                 DateTime query4EndTime = DateTime.Now;
                 printTimeDiff(query4EndTime, query3EndTime, "Tile query 4");
             }
+        }
+
+
+        static List<Tile> getTiles(AnDaDbContext db, int salesOrderId)
+        {
+            var salesOrderIdParam = new MySqlParameter("@salesOrderId", salesOrderId);
+            return db.Tiles.ToList();
+        }
+
+        static List<Tile> getTilesSetJsonObjectNull(AnDaDbContext db, int salesOrderId)
+        {
+            var salesOrderIdParam = new MySqlParameter("@salesOrderId", salesOrderId);
+            return db.Tiles
+                    .FromSql(@"SELECT `Id`, null as MaterialSpec, `SalesOrderId` from Tiles where SalesOrderId = @salesOrderId", salesOrderIdParam)
+                    .ToList();
         }
         public static void EnsureDBInitialized(AnDaDbContext db)
         {
@@ -59,18 +73,5 @@ namespace EFCoreTileTests
             Console.WriteLine($"{operation} costs: {(endTime - startTime).TotalSeconds} seconds");
         }
 
-        static List<Tile> getTiles(AnDaDbContext db, int salesOrderId)
-        {
-            var salesOrderIdParam = new MySqlParameter("@salesOrderId", salesOrderId);
-            return db.Tiles.ToList();
-        }
-
-        static List<Tile> getTilesNull(AnDaDbContext db, int salesOrderId)
-        {
-            var salesOrderIdParam = new MySqlParameter("@salesOrderId", salesOrderId);
-            return db.Tiles
-                    .FromSql(@"SELECT `Id`, null as MaterialSpec, `SalesOrderId` from Tiles where SalesOrderId = @salesOrderId", salesOrderIdParam)
-                    .ToList();
-        }
     }
 }
