@@ -1,0 +1,11 @@
+C:\Users\huxia\project\EFCoreTileTests\bin\Debug\netcoreapp2.0\EFCoreTileTests.deps.json
+C:\Users\huxia\project\EFCoreTileTests\bin\Debug\netcoreapp2.0\EFCoreTileTests.runtimeconfig.json
+C:\Users\huxia\project\EFCoreTileTests\bin\Debug\netcoreapp2.0\EFCoreTileTests.runtimeconfig.dev.json
+C:\Users\huxia\project\EFCoreTileTests\bin\Debug\netcoreapp2.0\EFCoreTileTests.dll
+C:\Users\huxia\project\EFCoreTileTests\bin\Debug\netcoreapp2.0\EFCoreTileTests.pdb
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.csprojAssemblyReference.cache
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.csproj.CoreCompileInputs.cache
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.AssemblyInfoInputs.cache
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.AssemblyInfo.cs
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.dll
+C:\Users\huxia\project\EFCoreTileTests\obj\Debug\netcoreapp2.0\EFCoreTileTests.pdb
